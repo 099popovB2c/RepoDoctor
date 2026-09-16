@@ -1,23 +1,24 @@
 # RepoDoctor
 
-A zero-dependency repository health checker for open-source projects.
+Zero-dependency repository health checker for documentation, secrets, CI, dependencies and open-source release readiness.
 
-## v0.2.0 checks
+## v0.3.0
 
-- Core community docs, `.gitignore` and test-directory presence
-- Common accidental secret patterns and suspicious large files
-- Broken relative Markdown links and TODO/FIXME inventory
-- GitHub Actions presence
-- **Workflow token-permission check**
-- **Unpinned third-party GitHub Action detection**
-- `pull_request_target` risk warning
-- Dependabot/Renovate and CODEOWNERS detection
-- Dependency inventory and git working-tree status
-- Markdown/JSON reports plus CI-friendly `--fail-below`
+- GitHub Actions permission and full-SHA pinning checks
+- CodeQL / common SAST workflow detection
+- Dependency lockfile and Python pinning checks
+- Committed binary/archive artifact detection
+- VERSION/changelog/release-tag readiness checks
+- Optional OSV vulnerability lookup for pinned PyPI/npm dependencies (`--osv`)
+- SARIF 2.1.0 output for code-scanning pipelines (`--sarif`)
+- JSON and Markdown reports retained
 
 ```bash
 python repodoctor.py .
-python repodoctor.py . --json report.json --markdown report.md --fail-below 85
+python repodoctor.py . --json report.json --markdown report.md
+python repodoctor.py . --sarif repodoctor.sarif
+python repodoctor.py . --osv
+python repodoctor.py . --fail-below 85
 ```
 
-RepoDoctor performs static local checks and never uploads repository contents. It complements, rather than replaces, tools such as OpenSSF Scorecard.
+OSV lookup is opt-in and requires network access. Local checks do not upload repository content.
