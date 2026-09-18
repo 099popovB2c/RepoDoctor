@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import argparse,json,re,subprocess,urllib.request
 from pathlib import Path
-VERSION='0.3.0'
+VERSION='0.4.0'
 SECRET_PATTERNS={'private_key':re.compile(r'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----'),'aws_access_key':re.compile(r'AKIA[0-9A-Z]{16}'),'generic_secret':re.compile(r'(?i)(api[_-]?key|secret|token|password)\s*[:=]\s*["\']?[A-Za-z0-9_\-]{20,}')}
 SKIP={'.git','node_modules','.venv','venv','dist','build','coverage','__pycache__'};TEXT_EXT={'.md','.txt','.py','.js','.ts','.tsx','.jsx','.json','.yml','.yaml','.toml','.ini','.env','.sh','.ps1','.html','.css','.java','.go','.rs'};BINARY_EXT={'.exe','.dll','.so','.dylib','.bin','.jar','.war','.apk','.ipa','.msi','.deb','.rpm','.zip','.7z','.rar'};LOCKFILES=('package-lock.json','npm-shrinkwrap.json','pnpm-lock.yaml','yarn.lock','poetry.lock','Pipfile.lock','uv.lock','Cargo.lock','go.sum')
 def files(root):

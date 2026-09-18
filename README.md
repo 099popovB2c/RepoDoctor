@@ -1,3 +1,26 @@
+## Install with pipx
+
+Install directly from GitHub:
+
+```bash
+pipx install "git+https://github.com/099popovB2c/RepoDoctor.git"
+```
+
+Global commands:
+
+```text
+repodoctor
+repodoctor-regression
+```
+
+Example:
+
+```bash
+repodoctor . --json report.json
+```
+
+---
+
 # RepoDoctor
 
 RepoDoctor is a **zero-dependency repository health checker** for maintainers who want a fast way to audit documentation, CI, dependency hygiene, release readiness and common security mistakes.

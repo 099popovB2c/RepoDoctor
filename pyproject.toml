@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "repodoctor"
+version = "0.4.0"
+description = "Zero-dependency repository health checker and regression gate"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [{name = "099popovB2c"}]
+keywords = ["repository", "security", "ci", "sarif", "quality", "cli"]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/099popovB2c/RepoDoctor"
+Repository = "https://github.com/099popovB2c/RepoDoctor"
+Issues = "https://github.com/099popovB2c/RepoDoctor/issues"
+
+[project.scripts]
+repodoctor = "repodoctor:main"
+repodoctor-regression = "regression:main"
+
+[tool.setuptools]
+py-modules = ["repodoctor", "regression"]
